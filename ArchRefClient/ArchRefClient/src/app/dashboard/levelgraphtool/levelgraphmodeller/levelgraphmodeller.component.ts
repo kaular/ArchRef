@@ -22,8 +22,7 @@ import {ProvidedPropertyService} from '../../../shared/dataservices/metrics/prov
 import {Utility} from '../../../utility';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FlashMessageService} from 'angular2-flash-message';
-import {FlashMessage} from 'angular2-flash-message';
+
 
 @Component({
   selector: 'app-levelgraphmodeller',
@@ -104,7 +103,6 @@ export class LevelGraphModellerComponent implements OnInit {
     {name: 'RefineTo', checked: true},
   ];
 
-  public flashMessage = new FlashMessage();
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -113,7 +111,6 @@ export class LevelGraphModellerComponent implements OnInit {
     private levelGraphNodeService: LevelGraphNodeService,
     private levelService: LevelService,
     private levelGraphRelationService: LevelGraphRelationService,
-    private flashMessageService: FlashMessageService,
     private providedPropertyService: ProvidedPropertyService,
     private expectedPropertySerivce: ExpectedPropertyService) {
   }
@@ -130,7 +127,7 @@ export class LevelGraphModellerComponent implements OnInit {
       this.currentLevelGraph.id = params['id'] || '';
     });
 
-    this.flashMessage.timeoutInMS = Constants.FLASHMESSAGETIMEOUT;
+//    this.flashMessage.timeoutInMS = Constants.FLASHMESSAGETIMEOUT;
     this.selectedRepository.name = 'Select Repository';
     this.retrieveLevelGraph(this.currentLevelGraph.id);
     this.retrieveRepositories();
@@ -157,10 +154,10 @@ export class LevelGraphModellerComponent implements OnInit {
         Logger.info('Repositories sucessfully retrieved.', LevelGraphModellerComponent.name);
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
   }
 
@@ -179,10 +176,10 @@ export class LevelGraphModellerComponent implements OnInit {
         Logger.info('Level Graph with id: ' + levelGraphResponse.id + ' was retrieved sucessfully.', LevelGraphModellerComponent.name);
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
   }
 
@@ -203,10 +200,10 @@ export class LevelGraphModellerComponent implements OnInit {
         this.currentLevelGraph = levelGraph;
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
   }
 
@@ -229,10 +226,10 @@ export class LevelGraphModellerComponent implements OnInit {
         Logger.info('Level Graph Node with id: ' + levelGraphNodeResponse.id + ' was created sucessfully.', LevelGraphModellerComponent.name);
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
   }
 
@@ -249,10 +246,10 @@ export class LevelGraphModellerComponent implements OnInit {
         Logger.info('Level Graph Relation created sucessfully.', LevelGraphModellerComponent.name);
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
 
   }
@@ -299,10 +296,10 @@ export class LevelGraphModellerComponent implements OnInit {
       Logger.info('Level Graph Node with id: ' + levelGraphNode.id + ' was deleted sucessfully.', LevelGraphModellerComponent.name);
     },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
   }
 
@@ -333,10 +330,10 @@ export class LevelGraphModellerComponent implements OnInit {
         Logger.info('Level Graph Relation with id: ' + levelGraphRelation.id + ' was deleted sucessfully.', LevelGraphModellerComponent.name);
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
   }
 
@@ -579,10 +576,10 @@ export class LevelGraphModellerComponent implements OnInit {
           }
         }
       } else {
-        this.flashMessage.message = 'Self-Loops are not allowed in a Level Graph';
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = 'Self-Loops are not allowed in a Level Graph';
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       }
 
       this.lastMousePositionY = event.offsetY;
@@ -665,10 +662,10 @@ export class LevelGraphModellerComponent implements OnInit {
           levelGraphNode.name = 'Unnamed';
           this.createLevelGraphNode(levelGraphNode);
         } else {
-          this.flashMessage.message = 'Fragment Nodes cannot be added to level ' + Constants.LOWESTABSTRACTIONLEVEL + ' of a level graph!';
-          this.flashMessage.isSuccess = false;
-          this.flashMessage.isError = true;
-          this.flashMessageService.display(this.flashMessage);
+//          this.flashMessage.message = 'Fragment Nodes cannot be added to level ' + Constants.LOWESTABSTRACTIONLEVEL + ' of a level graph!';
+//          this.flashMessage.isSuccess = false;
+//          this.flashMessage.isError = true;
+//          this.flashMessageService.display(this.flashMessage);
         }
       } else {
         levelGraphNode.name = this.currentDragData.name;
@@ -851,10 +848,10 @@ export class LevelGraphModellerComponent implements OnInit {
     for (let targetRelation of targetNode.inLevelGraphRelations) {
       for (let sourceRelation of sourceNode.outLevelGraphRelations) {
         if (targetRelation.id === sourceRelation.id) {
-          this.flashMessage.message = 'There already exist a relation between this nodes!';
-          this.flashMessage.isSuccess = false;
-          this.flashMessage.isError = true;
-          this.flashMessageService.display(this.flashMessage);
+//          this.flashMessage.message = 'There already exist a relation between this nodes!';
+//          this.flashMessage.isSuccess = false;
+//          this.flashMessage.isError = true;
+//          this.flashMessageService.display(this.flashMessage);
           return true;
         }
       }
@@ -877,17 +874,17 @@ export class LevelGraphModellerComponent implements OnInit {
       } else if (sourceNode.levelGraphNodeType === LevelGraphNodeType.RELATIONSHIPTYPE && targetNode.levelGraphNodeType === LevelGraphNodeType.NODETYPE) {
         return true;
       } else {
-        this.flashMessage.message = 'ConnectedTo relation can only been draw between a Level Graph Node of Type RelationshipType and Level Graph Node of Type NodeType!';
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = 'ConnectedTo relation can only been draw between a Level Graph Node of Type RelationshipType and Level Graph Node of Type NodeType!';
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
         return false;
       }
     } else {
-      this.flashMessage.message = 'ConnectedTo relations can only been drawn between two nodes in the same Level!';
-      this.flashMessage.isSuccess = false;
-      this.flashMessage.isError = true;
-      this.flashMessageService.display(this.flashMessage);
+//      this.flashMessage.message = 'ConnectedTo relations can only been drawn between two nodes in the same Level!';
+//      this.flashMessage.isSuccess = false;
+//      this.flashMessage.isError = true;
+//      this.flashMessageService.display(this.flashMessage);
       return false;
     }
   }
@@ -913,10 +910,10 @@ export class LevelGraphModellerComponent implements OnInit {
       } else if (sourceNode.levelGraphNodeType === LevelGraphNodeType.NODETYPE && targetNode.levelGraphNodeType === LevelGraphNodeType.NODETYPEFRAGMENT) {
         return true;
       } else {
-        this.flashMessage.message = 'Refine To relations can only be drawn between to nodes of same type in different levels or between a node and a node of type fragment!';
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = 'Refine To relations can only be drawn between to nodes of same type in different levels or between a node and a node of type fragment!';
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
         return false;
       }
     } else {
@@ -929,10 +926,10 @@ export class LevelGraphModellerComponent implements OnInit {
       } else if (sourceNode.levelGraphNodeType === LevelGraphNodeType.RELATIONSHIPTYPEFRAGMENT && targetNode.levelGraphNodeType === LevelGraphNodeType.NODETYPE) {
         return true;
       } else {
-        this.flashMessage.message = 'RefineTo relations can only been drawn between nodes in the same level from a level graph node of type fragment to a  level graph node of type relationship or nodetype.';
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = 'RefineTo relations can only been drawn between nodes in the same level from a level graph node of type fragment to a  level graph node of type relationship or nodetype.';
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       }
       return false;
     }
@@ -967,10 +964,10 @@ export class LevelGraphModellerComponent implements OnInit {
         Logger.info('Level with id: ' + levelResponse.id + ' was created sucessfully.', LevelGraphModellerComponent.name);
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isSuccess = false;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+//        this.flashMessage.message = error;
+//        this.flashMessage.isSuccess = false;
+//        this.flashMessage.isError = true;
+//        this.flashMessageService.display(this.flashMessage);
       });
   }
 
@@ -988,16 +985,16 @@ export class LevelGraphModellerComponent implements OnInit {
           Logger.info('Level with id: ' + this.currentLevelGraph.levels[this.currentLevelGraph.levels.length - 1].id + ' was deleted sucessfully.', LevelGraphModellerComponent.name);
         },
         (error) => {
-          this.flashMessage.message = error;
-          this.flashMessage.isSuccess = false;
-          this.flashMessage.isError = true;
-          this.flashMessageService.display(this.flashMessage);
+//          this.flashMessage.message = error;
+//          this.flashMessage.isSuccess = false;
+//          this.flashMessage.isError = true;
+//          this.flashMessageService.display(this.flashMessage);
         });
     } else {
-      this.flashMessage.message = 'A Level Graph must have at least 2 levels.';
-      this.flashMessage.isSuccess = false;
-      this.flashMessage.isError = true;
-      this.flashMessageService.display(this.flashMessage);
+//      this.flashMessage.message = 'A Level Graph must have at least 2 levels.';
+//      this.flashMessage.isSuccess = false;
+//      this.flashMessage.isError = true;
+//      this.flashMessageService.display(this.flashMessage);
     }
   }
 

@@ -13,8 +13,6 @@ import {RepositoryService} from '../../shared/dataservices/repository/repository
 import {TopologyTemplateService} from '../../shared/dataservices/topologytemplate/topologytemplate.service';
 import {NodeTypeService} from '../../shared/dataservices/types/nodetype.service';
 import {Component, OnInit} from '@angular/core';
-import {FlashMessageService} from 'angular2-flash-message';
-import {FlashMessage} from 'angular2-flash-message';
 import {FileUploader} from 'ng2-file-upload';
 import * as FileSaver from 'file-saver';
 
@@ -39,7 +37,6 @@ const URL_EXPORT = '/definition';
  ****************************************************************************************************************************/
 export class AdministrationComponent implements OnInit {
 
-  public flashMessage = new FlashMessage();
   public uploader: FileUploader = new FileUploader({});
 
   topologyTemplates: TopologyTemplate[] = [];
@@ -50,7 +47,6 @@ export class AdministrationComponent implements OnInit {
     private topologyTemplateService: TopologyTemplateService,
     private levelGraphService: LevelGraphService,
     private nodeTypeService: NodeTypeService,
-    private flashMessageService: FlashMessageService,
     private xmlExportSerivce: ExportXmlService) {};
 
   ngOnInit() {
@@ -121,8 +117,7 @@ export class AdministrationComponent implements OnInit {
              this.levelGraphs.push(levelGraphResponse);
           },
           (error) => {
-            this.flashMessage.isError = true;
-            this.flashMessageService.display(this.flashMessage);
+            
           });
       }
 
@@ -132,9 +127,7 @@ export class AdministrationComponent implements OnInit {
              this.topologyTemplates.push(topologyTemplateResponse);
           },
           (error) => {
-            this.flashMessage.message = error;
-            this.flashMessage.isError = true;
-            this.flashMessageService.display(this.flashMessage);
+        
           });
       }
 
@@ -156,9 +149,7 @@ export class AdministrationComponent implements OnInit {
         FileSaver.saveAs(res, 'ArchRefDefinition.xml');
       },
       (error) => {
-        this.flashMessage.message = error;
-        this.flashMessage.isError = true;
-        this.flashMessageService.display(this.flashMessage);
+      
       });
   }
 }

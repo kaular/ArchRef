@@ -5,10 +5,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { RouterModule } from '@angular/router';
-import { ContextmenuModule } from 'ng2-contextmenu';
 
 @NgModule({
-    imports: [TopologyTemplateModule, ContextmenuModule, CommonModule, RouterModule, Ng2BootstrapModule.forRoot()],
+    imports: [TopologyTemplateModule, CommonModule, RouterModule, Ng2BootstrapModule.forRoot()],
     declarations: [TopologyTemplateToolComponent, TopologyModellerComponent],
     exports: [TopologyTemplateToolComponent, TopologyModellerComponent]
 })

@@ -199,7 +199,8 @@
 				
 				
 				<!-- Relationship Template -->
-			 	<g [contextmenu]="[relationshipTemplateContextMenu, {relationshipTemplate: relationshipTemplate}]" *ngFor="let relationshipTemplate of currentTopologyTemplate.relationshipTemplates">
+<!-- 				[contextmenu]="[relationshipTemplateContextMenu, {relationshipTemplate: relationshipTemplate}]"
+ -->			 	<g  *ngFor="let relationshipTemplate of currentTopologyTemplate.relationshipTemplates">
 					    <polyline [attr.points]="relationshipTemplate.path.pathDataString" style="fill:none;stroke:black;stroke-width:6" marker-end="url(#TriangleEnd)">
 					    
 					    </polyline>
@@ -208,7 +209,8 @@
 				</g>
 				
 				<!-- Node Template -->
-				<g [contextmenu]="[nodeTemplateContextMenu, {nodeTemplate: nodeTemplate}]" *ngFor="let nodeTemplate of currentTopologyTemplate.nodeTemplates" (mouseup)="stopDrawLevelGraphRelation(nodeTemplate)" (mousedown)="startMoveNode($event, nodeTemplate); setCurrentLevelGraphCompliantRelationshipTypes($event, nodeTemplate.levelGraphNodeId)" (mousemove)="onMoveNode($event)"
+<!-- 				[contextmenu]="[nodeTemplateContextMenu, {nodeTemplate: nodeTemplate}]"
+ -->				<g *ngFor="let nodeTemplate of currentTopologyTemplate.nodeTemplates" (mouseup)="stopDrawLevelGraphRelation(nodeTemplate)" (mousedown)="startMoveNode($event, nodeTemplate); setCurrentLevelGraphCompliantRelationshipTypes($event, nodeTemplate.levelGraphNodeId)" (mousemove)="onMoveNode($event)"
 					(mouseup)="stopMoveNode($event)">
 					<rect rx="20" ry="20" [attr.id]="nodeTemplate.id" [attr.x]="nodeTemplate.x" [attr.y]="nodeTemplate.y" [attr.width]="nodeTemplate.width" [attr.height]="nodeTemplate.height" fill="url(#nodeTemplate)" style="stroke:black;stroke-width:5;" />				    
 				    <image [attr.xlink:href]="nodeTemplate.icon" [attr.x]="nodeTemplate.x + nodeTemplate.height/100 * 10" [attr.y]="nodeTemplate.y + nodeTemplate.height/100 * 10" [attr.width]="nodeTemplate.width/100 * 20" [attr.height]="nodeTemplate.height/100 * 56" />			
@@ -223,7 +225,7 @@
 </div>
 
 
-<!-- Node Template context menu -->
+<!-- Node Template context menu 
 <contextmenu #nodeTemplateContextMenu>
 <div class="dropdown open">
 	<ul class="dropdown-menu">
@@ -264,7 +266,7 @@
 </div>
 </contextmenu>
 
-<!-- Relationship Template context menu -->
+  Relationship Template context menu 
 <contextmenu #relationshipTemplateContextMenu>
 <div class="dropdown open">
 	<ul class="dropdown-menu">
@@ -275,7 +277,7 @@
 		<li><a class="dropdown-item" (click)="deleteRelationshipTemplate(relationshipTemplateContextMenu.get('relationshipTemplate'))"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a></li>
 	</ul>
 </div>
-</contextmenu>
+</contextmenu> -->
 
 
 <!-- Modal for Create ProvidedProperty -->
